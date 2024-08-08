@@ -1,7 +1,7 @@
 def caesar_cipher(string, shift)
   uppercase_alphabet = ('A'..'Z').to_a
   lowercase_alphabet = ('a'..'z').to_a
-  result = ""
+  result = ''
   string.chars.map do |char|
     if uppercase_alphabet.include?(char)
       new_index = (uppercase_alphabet.index(char) + shift) % 26
@@ -9,7 +9,7 @@ def caesar_cipher(string, shift)
     elsif lowercase_alphabet.include?(char)
       new_index = (lowercase_alphabet.index(char) + shift) % 26
       result << lowercase_alphabet[new_index]
-    else 
+    else
       result << char
     end
   end
@@ -17,7 +17,7 @@ def caesar_cipher(string, shift)
 end
 
 # Check if script is being run directly
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
   string = ARGV[0] # the text to be encrypted
   shift = ARGV[1].to_i # the shift amount
   puts caesar_cipher(string, shift)
